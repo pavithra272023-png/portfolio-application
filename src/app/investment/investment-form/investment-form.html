@@ -1,0 +1,40 @@
+<h2>Add Investment</h2>
+<form [formGroup]="investmentForm" (ngSubmit)="submit()">
+    <label>
+        Asset Type:
+        <input formControlName="assetType">
+        @if(investmentForm.get('assetType')?.touched && investmentForm.get('assetType')?.invalid){
+            <div>Asset Type is required</div>
+        }
+    </label>
+
+    <label>
+        Quantity:
+        <input type="number" formControlName="quantity">
+        @if(investmentForm.get('quantity')?.touched && investmentForm.get('quantity')?.invalid){
+            <div>Qualtity must be greater than 0</div>
+        }
+    </label>
+
+    <label>
+        Price:
+        <input type="number" formControlName="price">
+         @if(investmentForm.get('price')?.touched && investmentForm.get('price')?.invalid){
+            <div>Price must be greater than 0</div>
+        }
+    </label>
+
+    <label>
+        Purchased Date:
+        <input type="date" formControlName="purchasedDate">
+         @if(investmentForm.get('purchasedDate')?.touched && investmentForm.get('purchasedDate')?.invalid){
+            <div>Purchased Date is required</div>
+        }
+    </label>
+    
+    <button type="submit" [disabled]="investmentForm.invalid">Submit</button>
+
+
+
+
+</form>

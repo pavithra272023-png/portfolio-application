@@ -1,2 +1,16 @@
 <h2>Portfolio Dashboard</h2>
 <p>Welcome to our financial portfolio</p>
+
+
+@if((investment$ |async)?.length==0){
+<p>No Investments added</p>
+}
+<ul>
+    @for(investment of investment$ | async ; track investment){
+    <li appHighlight>
+        {{investment.assetType}}
+        Quanity : {{investment.quantity}}
+        Price : {{investment.price | currencyFormat}}
+    </li>
+    }
+</ul>
